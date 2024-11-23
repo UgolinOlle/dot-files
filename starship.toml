@@ -1,0 +1,44 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](#5C00F8)\
+$directory\
+[](fg:#5C00F8 bg:#370617)\
+$git_branch\
+$git_status\
+[](fg:#370617 bg:#6a040f)\
+$aws\
+[](fg:#6a040f bg:#9d0208)\
+$time\
+[ ](fg:#9d0208)\
+[\nﬦ ](fg:#ffffff)"""
+
+add_newline = true
+scan_timeout = 10
+
+[directory]
+style = "bg:#5C00F8"
+truncation_length = 200
+truncation_symbol = "…/"
+format = "[  $path ]($style)[$read_only]($read_only_style)"
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#370617"
+format = '[[ $symbol $branch ](bg:#370617)]($style)'
+
+[git_status]
+style = "bg:#370617"
+format = '[[($all_status$ahead_behind )](bg:#370617)]($style)'
+
+[time]
+disabled = false
+time_format = "%a %m/%d %I:%M %P"
+style = "bg:#9d0208"
+format = '[[  $time ](bg:#9d0208)]($style)'
