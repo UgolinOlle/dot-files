@@ -9,11 +9,14 @@ cmd + alt - l : open -a "Slack"
 cmd + alt - i : open -a "Linear"
 cmd + alt - n : open -a "Notion"
 cmd + alt - d : open -a "Discord"
-cmd + alt - f : open ~ 
+cmd + alt - g : open -a "Gather"
+cmd + alt - k : open -a "Docker"
 alt - return : open -a "Kitty"
+alt - f : open ~ 
 
 # --- Reload config files
 alt - r : skhd --reload
+alt - y : yabai --restart-service
 
 # --- Focus window
 alt - h : yabai -m window --focus west
