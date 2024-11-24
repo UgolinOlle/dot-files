@@ -1,6 +1,4 @@
-# for documentation, visit here:
-#https://felixkratz.github.io/SketchyBar/config/bar
-
+# --- Load scripts files
 source "$HOME/.config/colors.sh"
 source "$HOME/.config/icons.sh"
 
@@ -40,8 +38,6 @@ sketchybar --default padding_left=8                                    \
 ##### Adding Menu #####
 
 ##### Adding Mission Control Space Indicators #####
-# mission control spaces to indicate active and 
-# available mission control spaces
 
 sketchybar --add event window_change
 
@@ -53,7 +49,7 @@ for i in "${!ICONS_SPACE[@]}"
 do
   sid=$((i+1))
   PAD_LEFT=2
-  PAD_RIGHT=2
+  PAD_RIGHT=8
   if [[ $i == 0 ]]; then
     PAD_LEFT=8
   elif [[ $i == $((LENGTH-1)) ]]; then
@@ -78,11 +74,6 @@ sketchybar --add bracket spaces '/space\..*/'                      \
            --set         spaces background.color=$COLOR_BACKGROUND
 
 ##### Adding Right Items #####
-
-# Some items refresh on a fixed cycle, e.g. the clock runs its script once
-# every 10s. Other items respond to events they subscribe to, e.g. the
-# volume.sh script is only executed once an actual change in system audio
-# volume is registered. More info about the event system can be found here:
 
 sketchybar --add item time right                        \
            --set      time script="$PLUGIN_DIR/time.sh" \
@@ -200,7 +191,5 @@ sketchybar            --add item color_display right               \
                                                         \
 
 ##### Finalizing Setup #####
-# The below command is only needed at the end of the initial configuration to
-# force all scripts to run the first time, it should never be run in an item script.
 
 sketchybar --update
