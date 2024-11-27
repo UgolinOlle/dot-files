@@ -6,11 +6,12 @@ cmd + alt - a : open -a "Calendar"
 cmd + alt - t : open -a "Screen Studio"
 cmd + alt - c : open -a "Cursor"
 cmd + alt - l : open -a "Slack"
-cmd + alt - i : open -a "Linear"
+cmd + alt - n : open -a "Linear"
 cmd + alt - n : open -a "Notion"
 cmd + alt - d : open -a "Discord"
 cmd + alt - g : open -a "Gather"
 cmd + alt - k : open -a "Docker"
+cmd + alt - r : open -a "Sourcetree"
 alt - return : open -a "Kitty"
 alt - f : open ~ 
 
@@ -89,9 +90,17 @@ shift + cmd - n : yabai -m space --create && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
-# fast focus desktop
-# cmd + alt - x : yabai -m space --focus recent
-# cmd + alt - 1 : yabai -m space --focus 1
+# --- Change desktop
+cmd + alt - 1 : yabai -m space --focus 1
+cmd + alt - 2 : yabai -m space --focus 2
+cmd + alt - 3 : yabai -m space --focus 3
+cmd + alt - 4 : yabai -m space --focus 4
+cmd + alt - 5 : yabai -m space --focus 5
+cmd + alt - 6 : yabai -m space --focus 6
+cmd + alt - 7 : yabai -m space --focus 7
+cmd + alt - 8 : yabai -m space --focus 8
+cmd + alt - 9 : yabai -m space --focus 9
+cmd + alt - 0 : yabai -m space --focus 10
 
 # --- Toggle window split type
 alt - v : yabai -m window --toggle split
