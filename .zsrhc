@@ -12,7 +12,6 @@ export GPG_TTY=/dev/ttys009
 # ------------------------------------------------------------------------------------------------------------------- #
 # --- THEME
 
-# eval "$(starship init zsh)"
 # headline
 export ZSH_THEME="simplerich"
 
@@ -37,6 +36,12 @@ plugins=(
 alias cls=clear
 alias rl="source ~/.zshrc"
 alias rm=trash
+
+
+# --- ZELLIJ
+alias zw="zellij --layout=wealthcome"
+alias zs="zellij"
+alias zm="zellij --layout=minimal"
 
 # --- Code
 function next_app() {
@@ -69,11 +74,9 @@ alias snv="sudo nvim"
 alias dv="cd ~/Developer/"
 alias ds="cd ~/Documents/"
 alias dw="cd ~/Downloads/"
-alias wh="cd ~/Developer/whoa-agency/"
 alias conf="cd ~/.config/"
 alias ..="cd .."
 alias h="cd ~"
-alias spikes="cd ~/Developer/spikes/"
 
 # --- LIST
 alias lt='eza --tree --level=2 --long --icons --git'
@@ -92,13 +95,6 @@ fi
 alias d=docker
 alias dc=docker compose
 alias ld=lazydocker
-
-function dclean() {
-	docker ps -a -q | xargs docker kill -f
-	docker ps -a -q | xargs docker rm -f
-	docker image | xargs '{print $3}' | xargs docker rm -f
-	docker volume prune -f
-}
 
 # --- GIT
 alias g=git
