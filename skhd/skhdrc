@@ -1,5 +1,5 @@
 # --- Applications
-cmd + alt - s : open -a "Safari"
+cmd + alt - s : open -a "Google Chrome"
 cmd + alt - m : open -a "Mail"
 cmd + alt - u : open -a "Music"
 cmd + alt - a : open -a "Calendar"
