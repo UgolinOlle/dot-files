@@ -6,8 +6,7 @@ export PATH="/usr/local/bin:/opt/homebrew/bin:$PYENV_ROOT/bin:$HOME/Library/Pyth
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
-export JAVA_HOME=$(/usr/libexec/java_home -v 21)
-export GPG_TTY=/dev/ttys009
+export $(grep -v '^#' ~/.env | xargs)
 
 # ------------------------------------------------------------------------------------------------------------------- #
 # --- THEME
@@ -110,6 +109,7 @@ autoload -U compinit && compinit
 
 # ------------------------------------------------------------------------------------------------------------------- #
 
+fpath=(~/.zsh/completions $fpath)
 source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
