@@ -11,6 +11,7 @@ cmd + alt - d : open -a "Discord"
 cmd + alt - g : open -a "Gather"
 cmd + alt - k : open -a "Docker"
 cmd + alt - o : open -a "Sourcetree"
+cmd + alt - p : open -a "TablePlus"
 alt - return : open -a "Wezterm"
 alt - f : open ~ 
 
