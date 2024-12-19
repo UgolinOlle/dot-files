@@ -15,8 +15,8 @@ local M = {
   },
   max_fps = 120,
   prefer_egl = true,
-  window_background_opacity = 4.0,
-  macos_window_background_blur = 20
+  window_background_opacity = 0.9,
+  macos_window_background_blur = 30
 }
 
 return M
