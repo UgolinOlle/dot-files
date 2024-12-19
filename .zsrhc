@@ -10,7 +10,6 @@ export NVM_DIR="$HOME/.nvm"
 # ------------------------------------------------------------------------------------------------------------------- #
 # --- THEME
 
-# headline
 export ZSH_THEME="simplerich"
 
 # ------------------------------------------------------------------------------------------------------------------- #
@@ -37,8 +36,8 @@ alias rm=trash
 
 
 # --- ZELLIJ
-alias zw="zellij --layout=wealthcome"
 alias zs="zellij"
+alias zw="zellij --layout=wealthcome"
 alias zm="zellij --layout=minimal"
 
 # --- Code
@@ -70,6 +69,7 @@ alias snv="sudo nvim"
 
 # --- PATHS
 alias dv="cd ~/Developer/"
+alias wc="cd ~/Developer/wealthcome/"
 alias ds="cd ~/Documents/"
 alias dw="cd ~/Downloads/"
 alias conf="cd ~/.config/"
@@ -91,22 +91,40 @@ fi
 
 # --- DOCKER
 alias d=docker
-alias dc=docker compose
 alias ld=lazydocker
+alias dc="docker compose"
+alias dl="docker ps -a"
+
+drun() {
+  if [ -z "$1" ]; then
+    echo "Usage: drun <image-name>"
+  else
+    docker run -it "$1"
+  fi
+}
+
+dbuild() {
+  if [ -z "$1" ]; then
+    echo "Usage: dbuild <Dockerfile-path>"
+  else
+    docker build -t "${2:-my-image}" "$1"
+  fi
+}
 
 # --- GIT
 alias g=git
 alias lg=lazygit
 
+# --- NPM
+alias ni="npm install"
+alias nr="npm run"
+alias nclean="rm node_modules"
+
 # --- DATABASE
 alias db="harlequin --config-path /Users/ugolin-olle/.config/.harlequin.toml"
 
-# --------------------------------------------------------------------------------------------------------------------#
-# --- PYTHON
-
-autoload -U compinit && compinit
-
 # ------------------------------------------------------------------------------------------------------------------- #
+# --- ZSH
 
 fpath=(~/.zsh/completions $fpath)
 source $ZSH/oh-my-zsh.sh
