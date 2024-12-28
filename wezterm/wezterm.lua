@@ -7,6 +7,7 @@ local modules = core.utils.map({
   'core.events',
   'core.mappings',
   'core.tab',
+  'core.launcher',
 }, core.utils.req)
 
 local valid_modules = {}

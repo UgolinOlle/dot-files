@@ -1,7 +1,11 @@
 local wz = require("wezterm")
 
 local M = {
-  leader = { key = '.', timeout_milliseconds = 1000 },
+  leader = {
+    key = 'a',
+    mods = 'CTRL',
+    timeout_milliseconds = 2000,
+  },
   keys = {
     --- Miscellaneous
     {
@@ -57,23 +61,23 @@ local M = {
     --- Navigate betwe
     {
       key = 'h',
-      mods = 'ALT',
-      action = wz.action.ActivatePaneDirection 'Left',
+      mods = 'LEADER',
+      action = wz.action.EmitEvent("switch-to-left"),
     },
     {
       key = 'j',
-      mods = 'ALT',
+      mods = 'LEADER',
       action = wz.action.ActivatePaneDirection 'Down',
     },
     {
       key = 'k',
-      mods = 'ALT',
+      mods = 'LEADER',
       action = wz.action.ActivatePaneDirection 'Up',
     },
     {
       key = 'l',
-      mods = 'ALT',
-      action = wz.action.ActivatePaneDirection 'Right',
+      mods = 'LEADER',
+      action = wz.action.EmitEvent("switch-to-right"),
     },
   }
 }
