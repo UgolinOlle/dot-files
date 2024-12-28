@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+
 local M = {
   font_size = 13,
   line_height = 1.2,
