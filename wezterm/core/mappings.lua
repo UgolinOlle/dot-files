@@ -58,25 +58,25 @@ local M = {
       action = wz.action { ActivateTabRelative = -1 },
     },
 
-    --- Navigate betwe
+    --- Navigate between panes
     {
       key = 'h',
-      mods = 'LEADER',
+      mods = 'CMD|OPT',
       action = wz.action.EmitEvent("switch-to-left"),
     },
     {
       key = 'j',
-      mods = 'LEADER',
+      mods = 'CMD|OPT',
       action = wz.action.ActivatePaneDirection 'Down',
     },
     {
       key = 'k',
-      mods = 'LEADER',
+      mods = 'CMD|OPT',
       action = wz.action.ActivatePaneDirection 'Up',
     },
     {
       key = 'l',
-      mods = 'LEADER',
+      mods = 'CMD|OPT',
       action = wz.action.EmitEvent("switch-to-right"),
     },
   }
