@@ -1,133 +1,184 @@
-# ------------------------------------------------------------------------------------------------------------------- #
-# -- PATHS
+# --- PATHS --------------------------------------------------------------------------------------------------------- #
 
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="/usr/local/bin:/opt/homebrew/bin:$PYENV_ROOT/bin:$HOME/Library/Python/3.9/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.nvm/versions/node/v18.20.4/lib:$HOME/.composer/vendor/bin:$HOME/.local/bin/:$PATH"
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PYENV_ROOT/bin:$HOME/Library/Python/3.9/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/.nvm/versions/node/v18.20.4/lib:$HOME/.composer/vendor/bin:$HOME/.local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
 
-# ------------------------------------------------------------------------------------------------------------------- #
-# --- THEME
+# NVM Setup
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+  source "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+fi
+
+# --- THEMES -------------------------------------------------------------------------------------------------------- #
 
 export ZSH_THEME="simplerich"
 
-# ------------------------------------------------------------------------------------------------------------------- #
-# --- PLUGINS
+# --- PLUGINS ------------------------------------------------------------------------------------------------------- #
 
 plugins=(
   git
   brew
   colorize
-	npm
-	nvm
+  npm
+  nvm
   zsh-syntax-highlighting
-  zsh-autocomplete
   zsh-autosuggestions
+  zsh-autocomplete
   colored-man-pages
 )
 
-# ------------------------------------------------------------------------------------------------------------------- #
-# --- MISC
+source $ZSH/oh-my-zsh.sh
 
+# --- Load additional scripts conditionally
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# --- ALIASES -------------------------------------------------------------------------------------------------------- #
+
+# --- Misc
 alias cls=clear
 alias rl="source ~/.zshrc"
-alias rm=trash
+alias rm="trash"
 
+# --- Paths
+alias dv="cd ~/Developer"
+alias wc="cd ~/Developer/wealthcome"
+alias ds="cd ~/Documents"
+alias dw="cd ~/Downloads"
+alias conf="cd ~/.config"
+alias h="cd ~"
+alias ..="cd .."
 
-# --- ZELLIJ
-alias zs="zellij"
-alias zw="zellij --layout=wealthcome"
-alias zm="zellij --layout=minimal"
+# --- List
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ll="eza --color=always --long --git --icons=always"
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-user --no-permissions --no-time"
 
-# --- Code
-function next_app() {
-  npx create-next-app@latest $1 --ts --tailwind --eslint --app --src-dir --use-yarn --turbo --yes
-  cd ./$1
-  git remote add origin $2
-}
-
-function rgpg() {
-  gpgconf --kill gpg-agent
-  gpgconf --launch gpg-agent
-}
-
-# --- BREW
+# --- Brew
 alias r="brew uninstall"
 alias i="brew install"
 alias ic="brew install --cask"
 alias u="brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor"
 alias s="brew services"
 
-# --- NEOVIM
-alias n=nvim
-alias nv=nvim
-alias vim=nvim
-alias vi=nvim
-alias nz="nv ~/.zshrc"
-alias snv="sudo nvim"
-
-# --- PATHS
-alias dv="cd ~/Developer/"
-alias wc="cd ~/Developer/wealthcome/"
-alias ds="cd ~/Documents/"
-alias dw="cd ~/Downloads/"
-alias conf="cd ~/.config/"
-alias ..="cd .."
-alias h="cd ~"
-
-# --- LIST
-alias lt='eza --tree --level=2 --long --icons --git'
-alias lta='lt -a'
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-user --no-permissions --no-time"
-alias ll="eza --color=always --long --git --icons=always"
-
-# --- BAT
-if command -v bat > /dev/null; then
-  alias cat="bat"
-elif command -v batcat > /dev/null; then
-  alias cat="batcat"
-fi
-
-# --- DOCKER
-alias d=docker
-alias ld=lazydocker
+# --- Docker
+alias d="docker"
+alias ld="lazydocker"
 alias dc="docker compose"
 alias dl="docker ps -a"
+alias drs="docker compose down && docker compose up"
 
-drun() {
-  if [ -z "$1" ]; then
-    echo "Usage: drun <image-name>"
-  else
-    docker run -it "$1"
-  fi
-}
+# --- Kubernetes
+alias k="kubectl"
+alias kgp="kubectl get pods"
+alias kgsvc="kubectl get svc"
+alias kd="kubectl describe"
+alias kl="kubectl logs"
+alias kns="kubectl config set-context --current --namespace"
 
-dbuild() {
-  if [ -z "$1" ]; then
-    echo "Usage: dbuild <Dockerfile-path>"
-  else
-    docker build -t "${2:-my-image}" "$1"
-  fi
-}
+# --- Git
+alias g="git"
+alias lg="lazygit"
 
-# --- GIT
-alias g=git
-alias lg=lazygit
+# --- Neovim
+alias n="nvim"
+alias nv="nvim"
+alias vim="nvim"
+alias vi="nvim"
+alias nz="nv ~/.zshrc"
+alias snv="sudo nvim"
 
 # --- NPM
 alias ni="npm install"
 alias nr="npm run"
-alias nclean="rm node_modules"
+alias nclean="rm -rf node_modules && npm cache clean --force"
 
-# --- DATABASE
-alias db="harlequin --config-path /Users/ugolin-olle/.config/.harlequin.toml"
+# --- Database
+alias db="harlequin --config-path $HOME/.config/.harlequin.toml"
 
-# ------------------------------------------------------------------------------------------------------------------- #
-# --- ZSH
+# --- Networking
+alias ports="lsof -i -P -n | grep LISTEN"
+
+# --- FUNCTIONS ----------------------------------------------------------------------------------------------------- #
+
+# --- Create a Next.js app with custom parameters
+function next_app() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: next_app <app-name> <git-remote-url>"
+    return 1
+  fi
+  npx create-next-app@latest "$1" --ts --tailwind --eslint --app --src-dir --use-yarn --turbo --yes
+  cd "$1" || return
+  git remote add origin "$2"
+}
+
+# --- Restart GPG agent
+function rgpg() {
+  gpgconf --kill gpg-agent
+  gpgconf --launch gpg-agent
+}
+
+# --- Docker run shortcut
+function drun() {
+  if [ -z "$1" ]; then
+    echo "Usage: drun <image-name>"
+    return 1
+  fi
+  docker run -it "$1"
+}
+
+# --- Docker build shortcut
+function dbuild() {
+  if [ -z "$1" ]; then
+    echo "Usage: dbuild <Dockerfile-path> [image-name]"
+    return 1
+  fi
+  docker build -t "${2:-my-image}" "$1"
+}
+
+# --- Find running process
+function find_process() {
+  if [ -z "$1" ]; then
+    echo "Usage: find_process <keyword>"
+    return 1
+  fi
+  ps aux | grep "$1" | grep -v "grep"
+}
+
+# --- Check an URL
+function check_url() {
+  if [ -z "$1" ]; then
+    echo "Usage: check_url <url>"
+    return 1
+  fi
+  curl -Is "$1" | head -n 1
+}
+
+# --- Compress a folder / file
+function compress() {
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: compress <source-folder> <destination-archive>"
+    return 1
+  fi
+  tar -czvf "$2".tar.gz "$1"
+  echo "Folder $1 compressed into $2.tar.gz"
+}
+
+# --- Uncompress a folder / file
+function decompress() {
+  if [ -z "$1" ]; then
+    echo "Usage: decompress <archive-file>"
+    return 1
+  fi
+  tar -xzvf "$1"
+  echo "Archive $1 decompressed."
+}
+
+# --- ZSH COMPLETIONS ----------------------------------------------------------------------------------------------- #
 
 fpath=(~/.zsh/completions $fpath)
-source $ZSH/oh-my-zsh.sh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ------------------------------------------------------------------------------------------------------------------- #
