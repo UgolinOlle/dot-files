@@ -61,22 +61,22 @@ local M = {
     --- Navigate between panes
     {
       key = 'h',
-      mods = 'CMD|OPT',
+      mods = 'CTRL|OPT',
       action = wz.action.EmitEvent("switch-to-left"),
     },
     {
       key = 'j',
-      mods = 'CMD|OPT',
+      mods = 'CTRL|OPT',
       action = wz.action.ActivatePaneDirection 'Down',
     },
     {
       key = 'k',
-      mods = 'CMD|OPT',
+      mods = 'CTRL|OPT',
       action = wz.action.ActivatePaneDirection 'Up',
     },
     {
       key = 'l',
-      mods = 'CMD|OPT',
+      mods = 'CTRL|OPT',
       action = wz.action.EmitEvent("switch-to-right"),
     },
   }
