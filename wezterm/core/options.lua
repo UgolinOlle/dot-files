@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 local M = {
-  font_size = 13,
+  font_size = 12.5,
   line_height = 1.2,
   font = wezterm.font("CommitMono"),
   window_decorations = "RESIZE",
