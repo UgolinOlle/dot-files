@@ -3,7 +3,22 @@
 launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
 
 sudo yabai --load-sa
+
+# --- Events
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=display_added action="sleep 2 && $HOME/.dotfiles/yabai/create_spaces.sh"
+yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.dotfiles/yabai/create_spaces.sh"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+
+$HOME/.config/yabai/scripts/create_spaces.sh
+
+# --- Move space 6 to second display
+yabai -m space 6 --display 2
+
+# --- Assign space 9 to the second display
+yabai -m display --add 2 --space 6
 
 # --- Global settings
 yabai -m config \
@@ -50,8 +65,10 @@ yabai -m rule --add label="About This Mac" app="System Information" title="About
 yabai -m rule --add app="Google Chrome" space=^1
 yabai -m rule --add app="Wezterm" space=2
 yabai -m rule --add app="Code" space=3
-yabai -m rule --add app="Notion" space=4
+yabai -m rule --add app="Notion" space=^4
+yabai -m rule --add app="Finder" space=^4
 yabai -m rule --add app="Slack" space=^5
 yabai -m rule --add app="Discord" space=^5
+yabai -m rule --add app="Gather" space=6
   
 echo "yabai configuration loaded.."
