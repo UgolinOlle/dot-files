@@ -41,6 +41,7 @@ fi
 alias cls=clear
 alias rl="source ~/.zshrc"
 alias rm="trash"
+alias cat="bat"
 
 # --- Paths
 alias dv="cd ~/Developer"
