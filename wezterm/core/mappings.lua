@@ -41,7 +41,7 @@ local M = {
       action = wz.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
     },
     {
-      key = '-',
+      key = '\\',
       mods = 'LEADER',
       action = wz.action.SplitVertical { domain = 'CurrentPaneDomain' },
     },
