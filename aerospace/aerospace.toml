@@ -116,15 +116,15 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 
 # --- Moving windows to workspaces
-cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1'
-cmd-ctrl-alt-shift-2 = 'move-node-to-workspace 2'
-cmd-ctrl-alt-shift-3 = 'move-node-to-workspace 3'
-cmd-ctrl-alt-shift-4 = 'move-node-to-workspace 4'
-cmd-ctrl-alt-shift-5 = 'move-node-to-workspace 5'
-cmd-ctrl-alt-shift-6 = 'move-node-to-workspace 6'
-cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7'
-cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8'
-cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9'
+cmd-shift-1 = 'move-node-to-workspace 1'
+cmd-shift-2 = 'move-node-to-workspace 2'
+cmd-shift-3 = 'move-node-to-workspace 3'
+cmd-shift-4 = 'move-node-to-workspace 4'
+cmd-shift-5 = 'move-node-to-workspace 5'
+cmd-shift-6 = 'move-node-to-workspace 6'
+cmd-shift-7 = 'move-node-to-workspace 7'
+cmd-shift-8 = 'move-node-to-workspace 8'
+cmd-shift-9 = 'move-node-to-workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -148,6 +148,11 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+# --- Move specific applications to differents workspaces
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace T"
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 3'
