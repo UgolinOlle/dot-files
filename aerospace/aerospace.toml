@@ -62,6 +62,7 @@ outer.right =      10
 7 = 'secondary'
 8 = 'secondary'
 9 = 'secondary'
+0 = 'secondary'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -119,6 +120,7 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-0 = 'workspace 0'
 
 # --- Moving windows to workspaces
 cmd-shift-1 = 'move-node-to-workspace 1'
@@ -130,10 +132,9 @@ cmd-shift-6 = 'move-node-to-workspace 6'
 cmd-shift-7 = 'move-node-to-workspace 7'
 cmd-shift-8 = 'move-node-to-workspace 8'
 cmd-shift-9 = 'move-node-to-workspace 9'
+cmd-shift-0 = 'move-node-to-workspace 0'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 ctrl-shift-tab = 'move-node-to-monitor --wrap-around next'
 
@@ -145,7 +146,6 @@ alt-shift-semicolon = 'mode service'
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-#s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
