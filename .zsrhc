@@ -1,6 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# --- POWERLEVEL10K ------------------------------------------------------------------------------------------------- #
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -50,6 +49,9 @@ alias cls=clear
 alias rl="source ~/.zshrc"
 alias rm="trash"
 alias cat="bat"
+alias grep="grep --color=auto"
+alias ports="lsof -i -P -n | grep LISTEN"
+alias kport="kill -9 \$(lsof -t -i:"
 
 # --- Paths
 alias dv="cd ~/Developer"
@@ -102,8 +104,13 @@ alias snv="sudo nvim"
 
 # --- NPM
 alias ni="npm install"
+alias nl="npm list"
 alias nr="npm run"
-alias nclean="rm -rf node_modules && npm cache clean --force"
+alias nc="rm -rf node_modules && npm cache clean --force"
+
+# --- YARN
+alias y="yarn"
+alias ya="yarn add"
 
 # --- Database
 alias db="harlequin --config-path $HOME/.config/.harlequin.toml"
