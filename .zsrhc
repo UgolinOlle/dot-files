@@ -69,11 +69,11 @@ alias ll="eza --color=always --long --git --icons=always"
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-user --no-permissions --no-time"
 
 # --- Brew
-alias r="brew uninstall"
-alias i="brew install"
-alias ic="brew install --cask"
-alias u="brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor"
-alias s="brew services"
+alias bu="brew uninstall"
+alias bi="brew install"
+alias bic="brew install --cask"
+alias br="brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor"
+alias bs="brew services"
 
 # --- Docker
 alias d="docker"
@@ -104,6 +104,7 @@ alias snv="sudo nvim"
 
 # --- NPM
 alias ni="npm install"
+alias nu="npm uninstall"
 alias nl="npm list"
 alias nr="npm run"
 alias nc="rm -rf node_modules && npm cache clean --force"
