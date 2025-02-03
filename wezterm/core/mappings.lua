@@ -2,7 +2,7 @@ local wz = require("wezterm")
 
 local M = {
 	leader = {
-		key = "a",
+		key = "w",
 		mods = "CTRL",
 		timeout_milliseconds = 2000,
 	},
