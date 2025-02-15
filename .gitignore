@@ -1,3 +1,4 @@
 .harlequin.toml
 github-copilot/
-.env
+.dart-cli-completion/
+tool_state
