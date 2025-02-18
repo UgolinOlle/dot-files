@@ -1,4 +1,7 @@
 .harlequin.toml
 github-copilot/
 .dart-cli-completion/
-tool_state
+tool_state/
+flutter/
+btop/
+htop/
