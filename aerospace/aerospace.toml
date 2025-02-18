@@ -92,7 +92,7 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # --- Move specific applications to differents workspaces
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if.app-id = 'com.apple.Safari'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -100,11 +100,11 @@ if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
+if.app-id = 'com.insomnia.app'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = "io.beekeeperstudio.desktop"
+if.app-id = "com.tinyapp.TablePlus"
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
@@ -114,8 +114,4 @@ run = 'move-node-to-workspace 7'
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace 8'
-
-[[on-window-detected]]
-if.app-id = 'com.gather.Gather'
-run = 'move-node-to-workspace 9'
 

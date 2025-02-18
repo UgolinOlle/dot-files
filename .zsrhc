@@ -15,10 +15,19 @@ fi
 
 # --- THEMES -------------------------------------------------------------------------------------------------------- #
 
-eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/cloud-context.omp.json)"
+# -- Local themes
+eval "$(oh-my-posh init zsh --config ~/Developer/dotfiles/oh-my-posh/themes/clean-detailed.omp.json)"
 
+# -- Online themes
+# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/tokyo.omp.json)"
+
+# space
+# cloud-context
+
+# -- Zsh theme
 # export ZSH_THEME="imp"
-# -- simplerich
+
+# simplerich
 
 # --- PLUGINS ------------------------------------------------------------------------------------------------------- #
 
