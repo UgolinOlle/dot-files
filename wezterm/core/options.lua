@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local M = {
 	font_size = 12.5,
 	line_height = 1.4,
-	font = wezterm.font_with_fallback({ { family = "CommitMono" }, { family = "JetbrainsMono Nerd Font" } }),
+	font = wezterm.font_with_fallback({ { family = "JetbrainsMono Nerd Font" } }),
 	window_decorations = "RESIZE",
 	hide_tab_bar_if_only_one_tab = true,
 	default_cursor_style = "BlinkingUnderline",
@@ -23,3 +23,5 @@ local M = {
 }
 
 return M
+
+-- { family = "CommitMono" },
