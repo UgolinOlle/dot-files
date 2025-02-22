@@ -100,7 +100,7 @@ if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.insomnia.app'
+if.app-id = 'com.postmanlabs.mac'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
@@ -109,6 +109,10 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
 run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
