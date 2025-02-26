@@ -116,7 +116,7 @@ ${r}`)}let d=this.tokenResponseParser(await t.json());return Array.isArray(d.sco
     id
     name
   }
-`;async function v_(a){let{graphQLClient:e}=Vs(),i=a.title.replace(/"/g,"\\$&"),n=a.description?.replace(/\n/g,"\\n")?.replace(/"/g,"\\$&"),t=`teamId: "${a.teamId}", title: "${i}", description: "${n}", priority: ${a.priority}`;a.stateId&&(t+=`, stateId: "${a.stateId}`),a.estimate&&(t+=`, estimate: ${a.estimate}`),a.assigneeId&&(t+=`, assigneeId: "${a.assigneeId}"`),a.labelIds&&a.labelIds.length>0&&(t+=`, labelIds: [${a.labelIds.map(r=>`"${r}"`).join(",")}]`),a.dueDate&&(t+=`, dueDate: "${a.dueDate.toISOString()}"`),a.cycleId&&(t+=`, cycleId: "${a.cycleId}"`),a.projectId&&(t+=`, projectId: "${a.projectId}"`),a.projectId&&a.projectMilestoneId&&(t+=`, projectMilestoneId: "${a.projectMilestoneId}"`),a.parentId&&(t+=`, parentId: "${a.parentId}"`);let{data:d}=await e.rawRequest(`
+`;async function v_(a){let{graphQLClient:e}=Vs(),i=a.title.replace(/"/g,"\\$&"),n=a.description?.replace(/\n/g,"\\n")?.replace(/"/g,"\\$&"),t=`teamId: "${a.teamId}", title: "${i}", description: "${n}", priority: ${a.priority}`;a.stateId&&(t+=`, stateId: "${a.stateId}"`),a.estimate&&(t+=`, estimate: ${a.estimate}`),a.assigneeId&&(t+=`, assigneeId: "${a.assigneeId}"`),a.labelIds&&a.labelIds.length>0&&(t+=`, labelIds: [${a.labelIds.map(r=>`"${r}"`).join(",")}]`),a.dueDate&&(t+=`, dueDate: "${a.dueDate.toISOString()}"`),a.cycleId&&(t+=`, cycleId: "${a.cycleId}"`),a.projectId&&(t+=`, projectId: "${a.projectId}"`),a.projectId&&a.projectMilestoneId&&(t+=`, projectMilestoneId: "${a.projectMilestoneId}"`),a.parentId&&(t+=`, parentId: "${a.parentId}"`);let{data:d}=await e.rawRequest(`
       mutation {
         issueCreate(input: {${t}}) {
           success
