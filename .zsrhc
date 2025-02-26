@@ -87,7 +87,7 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-user
 alias bu="brew uninstall"
 alias bi="brew install"
 alias bic="brew install --cask"
-alias br="brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor"
+alias bp="brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor"
 alias bs="brew services"
 
 # --- Docker
@@ -118,6 +118,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias nz="nv ~/.zshrc"
 alias snv="sudo nvim"
+alias nenv="nv .env"
 
 # --- NPM
 alias ni="npm install"
