@@ -92,7 +92,7 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # --- Move specific applications to differents workspaces
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if.app-id = 'org.mozilla.firefox'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -117,5 +117,16 @@ run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace 8'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace 9'
